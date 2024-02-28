@@ -17,27 +17,41 @@ public class MovieController {
     @Autowired
     MovieService movieService;
 
-    @PostMapping
-    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
-        Movie newMovie = movieService.addMovie();
-        return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
-    }
-
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies() {
         List<Movie> movies = movieService.getAllMovies();
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
+//    @GetMapping(value = "/{id}")
+//    public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {  //SINGLE MOVIE, SHOWS THE PATH
+//        Optional<Movie> movie = movieService.getMovieById(id);
+//        if (movie.isPresent()){
+//            Movie movie1 = new Movie(
+//            );
+//            return new ResponseEntity<>(movie1, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
+
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {
-        Optional<Movie> movie = movieService.getMovieById(id);
-        if (movie.isPresent()){
-            Movie movie1 = new Movie(
-            );
-            return new ResponseEntity<>(movie1, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Movie> getMovieById(@PathVariable Long id){
+        Movie movie = movieService.getMovieById(id);
+        return new ResponseEntity<>(movie, HttpStatus.OK);
     }
+
+//    @PostMapping
+//    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
+//        Movie newMovie = movieService.addMovie(movie);
+//        return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
+//    }
+
+    @PostMapping
+    public ResponseEntity<Movie> addNewMovie(@RequestBody Movie movie) {   // passing
+        movieService.addNewMovie(movie);
+        return new ResponseEntity<>(movie, HttpStatus.CREATED);
+
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "movies")
+@Table(name = "movies")  // keep plural
 public class Movie {
 
     @Id
@@ -31,10 +31,6 @@ public class Movie {
         this.title = title;
         this.rating = rating;
         this.duration = duration;
-    }
-
-    public Movie getAllMovies(Movie movie) {
-        return movie.getAllMovies(movie);
     }
 
     public long getId() {

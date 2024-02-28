@@ -8,5 +8,9 @@ import org.springframework.stereotype.Repository;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
 
-    Movie save();
 }
+
+// REPOSITORY CREATES AN OBJECT THAT...
+// A LAYER BETWEEN JAVA CLASS AND POSTGRES
+// JUST ESTABLISH THE CONNECTION AND SEVER IT
+// STORE ITEMS AND RETRIEVE IT

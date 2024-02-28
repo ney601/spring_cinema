@@ -22,12 +22,24 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-    public Optional<Movie> getMovieById(Long id) {
-        return movieRepository.findById(id);
+    public Movie getMovieById(Long id) {
+        Optional<Movie> movie = movieRepository.findById(id);
+        if(movie.isPresent()){
+            return movie.get();
+        }
+//        DO ERROR HANDLING
+//        optional is like buffer to check if the movie exists
+        return null;
     }
 
-    public Movie addMovie() {
-        return movieRepository.save();
+//    public Movie addMovie(Movie movie) {
+//        movieRepository.save(movie);
+//        return movie;
+//    }
+
+    public Movie addNewMovie(Movie movie){
+        movieRepository.save(movie);   // saving movie in database
+        return movie;
     }
 
 }
