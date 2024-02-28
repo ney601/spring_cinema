@@ -15,8 +15,8 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        movieService.addNewMovie();
-        movieService.addNewMovie();
+        movieService.addMovie();
+        movieService.addMovie();
 
     }
 }

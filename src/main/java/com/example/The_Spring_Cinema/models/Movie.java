@@ -1,6 +1,11 @@
 package com.example.The_Spring_Cinema.models;
 
+import com.example.The_Spring_Cinema.services.MovieService;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
 
 @Entity
 @Table(name = "movies")
@@ -22,5 +27,47 @@ public class Movie {
     public Movie(){
     }
 
+    public Movie(String title, String rating, int duration){
+        this.title = title;
+        this.rating = rating;
+        this.duration = duration;
+    }
 
+    public Movie getAllMovies(Movie movie) {
+        return movie.getAllMovies(movie);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    
 }
